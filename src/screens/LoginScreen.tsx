@@ -45,6 +45,7 @@ export default function LoginSceen(){
                 lavel="ログイン"
                 onPress={handlePress}
             />
+            <Text　style={styles.signinLinkText} >アカウント作成はこちら</Text>
         </View>
     );
 };
@@ -70,5 +71,9 @@ const styles = StyleSheet.create({
         marginBottom:15,
         width:250,
         color:'rgba(0,0,0,0.5)',
+    },
+    signinLinkText:{
+        color:'#0080ff',
+        marginTop:8,
     },
 });

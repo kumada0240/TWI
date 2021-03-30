@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import {View,Text,StyleSheet,TextInput,Alert} from 'react-native';
-import Button from '../component/Button';
+import Button from '../component/LoginButton';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import firebase from 'firebase';
 

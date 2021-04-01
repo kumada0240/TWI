@@ -8,6 +8,7 @@ import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 
 import LoginScreen from './src/screens/LoginScreen';
 import SigiUpScreen from './src/screens/SignUpScreen';
+import TwisterListScreen from './src/screens/TwisterListScreen';
 
 import { firebaseConfig } from './env';
 import firebase from 'firebase';
@@ -24,7 +25,7 @@ export default function App() {
   return(
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Login"
+        initialRouteName="TwisterList"
         screenOptions={{
           headerTitleStyle:{color:"#000000"},
           headerTitle:"Twister",
@@ -33,6 +34,7 @@ export default function App() {
       >
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="SignUp" component={SigiUpScreen} />
+        <Stack.Screen name="TwisterList" component={TwisterListScreen} />
       </Stack.Navigator>
     </NavigationContainer>
 

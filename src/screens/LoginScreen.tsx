@@ -1,22 +1,28 @@
 import React,{useState} from 'react';
 import {View,Text,StyleSheet,TextInput,Alert} from 'react-native';
-import Button from '../component/LoginButton';
+import LoginButton from '../component/LoginButton';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import firebase from 'firebase';
 
 
-export default function LoginSceen(){
+export default function LoginSceen(props){
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
+
+    const { navigation } = props;
 
     function handlePress() {
         firebase.auth().signInWithEmailAndPassword(email,password)
             .then((userCredential) => {
                 const { user } = userCredential;
                 console.log(user.uid);
+                navigation.reset({
+                    index: 0,
+                    routes: [{ name: 'TwisterList'}],
+                });
             })
             .catch((error) => {
-                Alert.alert("ログイン失敗")
+                Alert.alert("メールアドレス・パスワードをご確認の上、再度お試しください。")
             });
     };
 
@@ -41,11 +47,16 @@ export default function LoginSceen(){
                 secureTextEntry
                 textContentType='password'
             />
-            <Button
+            <LoginButton
                 lavel="ログイン"
                 onPress={handlePress}
             />
-            <Text　style={styles.signinLinkText} >アカウント作成はこちら</Text>
+            <Text
+                style={styles.signinLinkText}
+                onPress={ () => {navigation.navigate('SignUp') }}
+            >
+                アカウント作成はこちら
+            </Text>
         </View>
     );
 };

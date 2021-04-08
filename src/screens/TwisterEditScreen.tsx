@@ -3,23 +3,23 @@ import { View,Text,StyleSheet,Alert } from 'react-native';
 import Button from '../component/Button';
 
 import firebase from 'firebase';
+import 'firebase/firestore';
 
 export default function TwisterEditScreen(props){
     const { navigation } = props;
 
     function handlePress() {
         const db = firebase.firestore();
-        const ref = db.collection('twi');
-        Alert.alert("aaa2");
-        ref.add({
-            bodyText: 'Hello',
+
+        db.collection("twi").add({
+            bodyText:'Hello!!',
         })
-           // .then((docRef) => {
-           //     Alert.alert("aaa1");
-           // })
-           // .catch((error) => {
-           //     Alert.alert("aaa2");
-           // });
+        .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
     };
 
 

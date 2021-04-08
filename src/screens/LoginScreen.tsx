@@ -12,6 +12,8 @@ export default function LoginSceen(props){
     const { navigation } = props;
 
     function handlePress() {
+        const db = firebase.firestore();
+
         firebase.auth().signInWithEmailAndPassword(email,password)
             .then((userCredential) => {
                 const { user } = userCredential;

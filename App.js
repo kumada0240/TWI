@@ -4,8 +4,6 @@ import { Text, View ,TextInput} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
-
 import LoginScreen from './src/screens/LoginScreen';
 import SigiUpScreen from './src/screens/SignUpScreen';
 import TwisterListScreen from './src/screens/TwisterListScreen';
@@ -26,7 +24,7 @@ export default function App() {
   return(
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="TwisterEdit"
+        initialRouteName="Login"
         screenOptions={{
           headerTitleStyle:{color:"#000000"},
           headerTitle:"Twister",
